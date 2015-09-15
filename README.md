@@ -4,8 +4,11 @@ Requirements
 You will need the following-
 
 [node](https://nodejs.org/en/)
+
 [npm](https://www.npmjs.com/)
+
 [node-webkit](https://github.com/nwjs/nw.js/)
+
 Xcode7 (in beta)
 
 Installing
@@ -14,6 +17,7 @@ Installing
 On the server side, you'll need to do some basic setup-
 
 Navigate to the node directory and run the following command
+
     npm install
 
 Once that is done you can run the code.
@@ -28,6 +32,7 @@ To run the server simply navigate to the node folder and run the following comma
     npm start
 
 To run the client similarly, navigate to the node folder and run the following command-
+
     npm run run-app
 
 
