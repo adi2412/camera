@@ -35,14 +35,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		284EAA9D17467372002CEFCB /* PhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		284EAA9D17467372002CEFCB /* CameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		284EAAA017467372002CEFCB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		284EAAA217467372002CEFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		284EAAA417467372002CEFCB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		284EAAA817467372002CEFCB /* PhotoPicker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PhotoPicker-Info.plist"; sourceTree = "<group>"; };
+		284EAAA817467372002CEFCB /* CameraApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CameraApp-Info.plist"; sourceTree = "<group>"; };
 		284EAAAA17467372002CEFCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		284EAAAC17467372002CEFCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		284EAAAE17467372002CEFCB /* PhotoPicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoPicker-Prefix.pch"; sourceTree = "<group>"; };
+		284EAAAE17467372002CEFCB /* CameraApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CameraApp-Prefix.pch"; sourceTree = "<group>"; };
 		284EAAAF17467372002CEFCB /* APLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APLAppDelegate.h; sourceTree = "<group>"; };
 		284EAAB017467372002CEFCB /* APLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APLAppDelegate.m; sourceTree = "<group>"; };
 		284EAAB217467372002CEFCB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -51,7 +51,6 @@
 		284EAAB917467372002CEFCB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		284EAABB17467372002CEFCB /* APLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APLViewController.h; sourceTree = "<group>"; };
 		284EAABC17467372002CEFCB /* APLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APLViewController.m; sourceTree = "<group>"; };
-		4074F43C1BA362F700536F57 /* PhotoPicker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoPicker-Bridging-Header.h"; sourceTree = "<group>"; };
 		4074F43D1BA362F700536F57 /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckManager.swift; sourceTree = "<group>"; };
 		4074F43E1BA362F700536F57 /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAnyEvent.swift; sourceTree = "<group>"; };
 		4074F43F1BA362F700536F57 /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngine.swift; sourceTree = "<group>"; };
@@ -85,7 +84,7 @@
 		284EAA9417467372002CEFCB = {
 			isa = PBXGroup;
 			children = (
-				284EAAA617467372002CEFCB /* PhotoPicker */,
+				284EAAA617467372002CEFCB /* CameraApp */,
 				284EAA9F17467372002CEFCB /* Frameworks */,
 				284EAA9E17467372002CEFCB /* Products */,
 			);
@@ -94,7 +93,7 @@
 		284EAA9E17467372002CEFCB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				284EAA9D17467372002CEFCB /* PhotoPicker.app */,
+				284EAA9D17467372002CEFCB /* CameraApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,7 +108,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		284EAAA617467372002CEFCB /* PhotoPicker */ = {
+		284EAAA617467372002CEFCB /* CameraApp */ = {
 			isa = PBXGroup;
 			children = (
 				4074F43D1BA362F700536F57 /* SocketAckManager.swift */,
@@ -132,18 +131,17 @@
 				284EAAAF17467372002CEFCB /* APLAppDelegate.h */,
 				284EAAB017467372002CEFCB /* APLAppDelegate.m */,
 				284EAAA717467372002CEFCB /* Supporting Files */,
-				4074F43C1BA362F700536F57 /* PhotoPicker-Bridging-Header.h */,
 			);
-			path = PhotoPicker;
+			path = CameraApp;
 			sourceTree = "<group>";
 		};
 		284EAAA717467372002CEFCB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				284EAAA817467372002CEFCB /* PhotoPicker-Info.plist */,
+				284EAAA817467372002CEFCB /* CameraApp-Info.plist */,
 				284EAAA917467372002CEFCB /* InfoPlist.strings */,
 				284EAAAC17467372002CEFCB /* main.m */,
-				284EAAAE17467372002CEFCB /* PhotoPicker-Prefix.pch */,
+				284EAAAE17467372002CEFCB /* CameraApp-Prefix.pch */,
 				284EAAB217467372002CEFCB /* Default.png */,
 				284EAAB417467372002CEFCB /* Default@2x.png */,
 				284EAAB617467372002CEFCB /* Default-568h@2x.png */,
@@ -154,9 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		284EAA9C17467372002CEFCB /* PhotoPicker */ = {
+		284EAA9C17467372002CEFCB /* CameraApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 284EAAC017467372002CEFCB /* Build configuration list for PBXNativeTarget "PhotoPicker" */;
+			buildConfigurationList = 284EAAC017467372002CEFCB /* Build configuration list for PBXNativeTarget "CameraApp" */;
 			buildPhases = (
 				284EAA9917467372002CEFCB /* Sources */,
 				284EAA9A17467372002CEFCB /* Frameworks */,
@@ -166,9 +164,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoPicker;
+			name = CameraApp;
 			productName = PhotoPicker;
-			productReference = 284EAA9D17467372002CEFCB /* PhotoPicker.app */;
+			productReference = 284EAA9D17467372002CEFCB /* CameraApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -187,7 +185,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 284EAA9817467372002CEFCB /* Build configuration list for PBXProject "PhotoPicker" */;
+			buildConfigurationList = 284EAA9817467372002CEFCB /* Build configuration list for PBXProject "CameraApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -199,7 +197,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				284EAA9C17467372002CEFCB /* PhotoPicker */,
+				284EAA9C17467372002CEFCB /* CameraApp */,
 			);
 		};
 /* End PBXProject section */
@@ -326,20 +324,20 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoPicker/PhotoPicker-Prefix.pch";
+				GCC_PREFIX_HEADER = "CameraApp/CameraApp-Prefix.pch";
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
-				INFOPLIST_FILE = "PhotoPicker/PhotoPicker-Info.plist";
+				INFOPLIST_FILE = "CameraApp/CameraApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.edu.self.camerapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CameraApp;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "PhotoPicker/PhotoPicker-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
@@ -351,20 +349,20 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PhotoPicker/PhotoPicker-Prefix.pch";
+				GCC_PREFIX_HEADER = "CameraApp/CameraApp-Prefix.pch";
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
 				GCC_WARN_SHADOW = YES;
 				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
-				INFOPLIST_FILE = "PhotoPicker/PhotoPicker-Info.plist";
+				INFOPLIST_FILE = "CameraApp/CameraApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.edu.self.camerapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CameraApp;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "PhotoPicker/PhotoPicker-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -372,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		284EAA9817467372002CEFCB /* Build configuration list for PBXProject "PhotoPicker" */ = {
+		284EAA9817467372002CEFCB /* Build configuration list for PBXProject "CameraApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				284EAABE17467372002CEFCB /* Debug */,
@@ -381,7 +379,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		284EAAC017467372002CEFCB /* Build configuration list for PBXNativeTarget "PhotoPicker" */ = {
+		284EAAC017467372002CEFCB /* Build configuration list for PBXNativeTarget "CameraApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				284EAAC117467372002CEFCB /* Debug */,

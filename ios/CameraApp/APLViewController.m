@@ -46,7 +46,7 @@
  */
 
 #import "APLViewController.h"
-#import "PhotoPicker-Swift.h"
+#import "CameraApp-Swift.h"
 
 
 @interface APLViewController ()
@@ -57,8 +57,14 @@
 
 @property (nonatomic) UIImagePickerController *imagePickerController;
 
-@property (nonatomic, weak) NSTimer *cameraTimer;
 @property (nonatomic) NSMutableArray *capturedImages;
+
+@property (nonatomic) float delayValue;
+@property (nonatomic) NSInteger numberPics;
+@property (nonatomic) BOOL isDelete;
+
+@property (nonatomic) NSInteger picsTaken;
+@property (nonatomic) NSTimer *cameraTimer;
 
 
 @end
@@ -73,7 +79,7 @@
     [super viewDidLoad];
     self.capturedImages = [[NSMutableArray alloc] init];
     
-    self.socket = [[SocketIOClient alloc] initWithSocketURL:@"192.168.0.100:3000" opts:nil];
+    self.socket = [[SocketIOClient alloc] initWithSocketURL:@"192.168.0.101:3000" opts:nil];
     [self addSocketEventHandlers];
     [self connectSocket];
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
@@ -95,17 +101,29 @@
         NSLog(@"socket connected");
     }];
     
-    [self.socket onObjectiveC:@"clickPic" callback:^(NSArray* data, void (^ack)(NSArray*)){
-        NSLog(@"clicking picture");
-        [self.imagePickerController takePicture];
-    }];
-    
     [self.socket onObjectiveC:@"download" callback:^(NSArray *data, void (^ack)(NSArray*)){
-        NSLog(@"Download event");
-        NSData *imageData = [[NSData alloc] init];
-        imageData = UIImagePNGRepresentation([self.capturedImages objectAtIndex:0]);
-        NSString *imageBase64 = [imageData base64EncodedStringWithOptions:0];
-        [self.socket emit:@"upload" withItems:@[@{@"image":imageBase64}]];
+        NSLog(@"click and Download event");
+        NSArray *delay = [data valueForKey:@"delay"];
+        self.delayValue = [[delay objectAtIndex:0] floatValue];
+        NSArray *numPics = [data valueForKey:@"numPics"];
+        self.numberPics = [[numPics objectAtIndex:0] integerValue];
+        NSArray *delete = [data valueForKey:@"isDelete"];
+        self.isDelete = [[delete objectAtIndex:0] boolValue];
+        NSLog(@"%f %ld %d",self.delayValue,(long)self.numberPics,self.isDelete);
+        self.picsTaken = 0;
+        self.cameraTimer = [NSTimer scheduledTimerWithTimeInterval:self.delayValue
+                                                   target:self
+                                                 selector:@selector(timedPhotoFire:)
+                                                 userInfo:nil
+                                                               repeats:YES];
+//        Send the clicked pictures back
+//        for (UIImage *image in self.capturedImages) {
+//            NSLog(@"sending image");
+//            NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+//            NSString *imageBase64 = [imageData base64EncodedDataWithOptions:0];
+//            [self.socket emit:@"upload" withItems:@[@{@"image":imageBase64}]];
+//        }
+        
     }];
 }
 
@@ -114,11 +132,36 @@
     [self.socket connect];
 }
 
+- (void) createSocketMessage
+{
+    //        Send the clicked pictures back
+    NSMutableArray *imageDataArray = [[NSMutableArray alloc] init];
+    for (UIImage *image in self.capturedImages) {
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+        NSString *imageBase64 = [imageData base64EncodedStringWithOptions:0];
+        [imageDataArray addObject:imageBase64];
+    }
+    NSMutableDictionary *message = [[NSMutableDictionary alloc] init];
+    [message setValue:imageDataArray forKey:@"images"];
+    [self.socket emit:@"upload" withItems:@[message]];
+//    NSData *imageData = UIImagePNGRepresentation([self.capturedImages objectAtIndex:0]);;
+//    //        imageData = UIImagePNGRepresentation([self.capturedImages objectAtIndex:0]);
+//    NSString *imageBase64 = [imageData base64EncodedStringWithOptions:0];
+//    [self.socket emit:@"upload" withItems:@[@{@"image":imageBase64}]];
+}
+
 #pragma mark - Timer
 
 // Called by the timer to take a picture.
 - (void)timedPhotoFire:(NSTimer *)timer
 {
+    self.picsTaken++;
+    if(self.picsTaken == self.numberPics){
+        [self.cameraTimer invalidate];
+        self.cameraTimer = nil;
+        //        Send the clicked pictures back
+        [self createSocketMessage];
+    }
     [self.imagePickerController takePicture];
 }
 
@@ -133,12 +176,14 @@
 
     [self.capturedImages addObject:image];
 
-    if ([self.cameraTimer isValid])
+//    if ([self.cameraTimer isValid])
+//    {
+//        return;
+//    }
+    if(!self.isDelete)
     {
-        return;
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     }
-
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
 

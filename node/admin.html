@@ -47,17 +47,44 @@
     <div class="container">
 
       <div class="row">
+        <div class="col-md-6 col-md-offset-3" id="status">
+          <p class="bg-info" id="statusText">There are 0 devices connected</p>
+        </div>
         <div class="col-md-6 col-md-offset-3" id="controls">
-            <div class="download-group">
-                <input id="delay" autocomplete="off" type="number" class="form-control input-lg" value="0" />
-
-                <button id="clickButton" class="btn btn-primary btn-lg" type="button">
-                Click picture
-                </button>
+            <div class="controls">
+              <button id="downloadButton" class="btn btn-success btn-lg" type="button">
+              Click &amp; Download
+              </button>
+              <button id="settingsButton" class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#settingsPane" aria-expanded="false" aria-controls="settingsPane">
+              Settings
+              </button>
             </div>
-            <button id="downloadButton" class="btn btn-success btn-lg" type="button">
-            Download
-            </button>
+            <div class="collapse" id="settingsPane">
+              <div class="input-group col-md-8">
+                <label for="delayInput" class="col-sm-7 control-label">Delay</label>
+                <div class="col-sm-5">
+                      <input type="text" class="form-control" id="delayInput" value="0">
+                    </div>
+              </div>
+              <!-- <div class="input-group col-md-8">
+                <label for="delay" class="col-sm-7 control-label">Camera</label>
+                <div class="col-sm-5">
+                      <input type="text" class="form-control" id="delay" value="0">
+                    </div>
+              </div> -->
+              <div class="input-group col-md-8">
+                <label for="ppc" class="col-sm-7 control-label">Pics/camera</label>
+                <div class="col-sm-5">
+                      <input type="text" class="form-control" id="ppc" value="1">
+                    </div>
+              </div>
+              <div class="input-group col-md-8">
+                <label for="delete" class="col-sm-7 control-label">Delete</label>
+                <div class="col-sm-5">
+                      <input type="checkbox" class="form-control" id="delete">
+                    </div>
+              </div> 
+            </div>
         </div>
       </div>
       <div class="row">
@@ -71,6 +98,7 @@
     </div><!-- /.container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script>
         var socket = io('http://localhost:3000');
@@ -81,13 +109,28 @@
             }, delay*1000);
         });
         $('#downloadButton').click(function(){
-            socket.emit('download', 'Download pic');
+            var delay = $('#delayInput').val();
+            var numPics = $('#ppc').val();
+            var isDelete = $('#delete').prop('checked');
+            socket.emit('download', {"delay": delay, "numPics": numPics, "isDelete": isDelete});
         });
+        socket.on('newDevice', function(msg){
+          var devices = msg.devices-1;
+          $('#statusText').text('There are ' + devices.toString() + ' devices connected');
+        });
+        socket.on('disconnectedDevice', function(msg){
+          var devices = msg.devices-1;
+          console.log(msg.devices);
+          $('#statusText').text('There are ' + devices.toString() + ' devices connected');
+        })
         socket.on('upload', function(msg){
-          $('#gallery p').hide();
-          $('#gallery').append('<img src="data:image/png;base64,'+msg.image+'">');
+          for (var i = msg.images.length - 1; i >= 0; i--) {
+            $('#gallery p').hide();
+            $('#gallery').append('<img src="data:image/jpeg;base64,'+msg.images[i]+'">');
+          };
+          // $('#gallery p').hide();
+          // $('#gallery').append('<img src="data:image/png;base64,'+msg.image+'">');
         });
-
     </script>
 
   

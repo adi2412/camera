@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var connectedDevices = 0;
 app.use(express.static('public'));
 app.get('/', function(req,res){
   res.sendFile(__dirname + '/index.html');
@@ -12,18 +13,19 @@ app.get('/admin', function(req,res){
 });
 
 io.on('connection', function(socket){
-  console.log("Connected client");
-  socket.on('clickPic', function(msg){
-    console.log("received click pic event");
-    io.emit('clickPic', msg);
-  });
+  connectedDevices++;
+  io.emit('newDevice', {devices: connectedDevices});
   socket.on('download', function(msg){
-    console.log("download event");
     io.emit('download', msg);
+    console.log(msg);
   });
   socket.on('upload', function(msg){
-    console.log("image received");
     io.emit('upload', msg);
+    console.log(msg);
+  });
+  socket.on('disconnect', function(msg){
+    connectedDevices--;
+    io.emit('disconnectedDevice', {devices: connectedDevices});
   })
 });
 
@@ -36,3 +38,4 @@ http.listen(3000, function(){
 // Receive the download files- POST request to a URL with the data?
 // Read in the byte stream data on node server side
 // Or send directly to the client admin? Doesn't make sense. I'm unable to download any files on the client side.
+// send photos with correct name for photo
