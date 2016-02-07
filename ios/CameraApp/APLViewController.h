@@ -46,8 +46,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "Device.h"
 
 
 @interface APLViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+-(void) setServer:(Device *)device;
 
 @end

@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var fs = require('')
+
 var connectedDevices = 0;
 app.use(express.static('public'));
 app.get('/', function(req,res){
@@ -17,11 +19,17 @@ io.on('connection', function(socket){
   io.emit('newDevice', {devices: connectedDevices});
   socket.on('download', function(msg){
     io.emit('download', msg);
-    console.log(msg);
+    // Write the files to disk
+    var hostName = msg.hostName;
+    for (var i = msg.images.length - 1; i >= 0; i--) {
+      var imageName = hostName + '-' + i + '.jpg';
+      fs.writeFile(imageName,msg.images),(err) =>{
+        if(err) throw err;
+      });
+    }
   });
   socket.on('upload', function(msg){
     io.emit('upload', msg);
-    console.log(msg);
   });
   socket.on('disconnect', function(msg){
     connectedDevices--;

@@ -18,20 +18,25 @@
 		284EAAB717467372002CEFCB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284EAAB617467372002CEFCB /* Default-568h@2x.png */; };
 		284EAABA17467372002CEFCB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 284EAAB817467372002CEFCB /* MainStoryboard.storyboard */; };
 		284EAABD17467372002CEFCB /* APLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284EAABC17467372002CEFCB /* APLViewController.m */; };
-		4074F44B1BA362F700536F57 /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F43D1BA362F700536F57 /* SocketAckManager.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F44C1BA362F700536F57 /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F43E1BA362F700536F57 /* SocketAnyEvent.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F44D1BA362F700536F57 /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F43F1BA362F700536F57 /* SocketEngine.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F44E1BA362F700536F57 /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4401BA362F700536F57 /* SocketEngineClient.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F44F1BA362F700536F57 /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4411BA362F700536F57 /* SocketEventHandler.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4501BA362F700536F57 /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4421BA362F700536F57 /* SocketFixUTF8.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4511BA362F700536F57 /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4431BA362F700536F57 /* SocketIOClient.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4521BA362F700536F57 /* SocketIOClientStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4441BA362F700536F57 /* SocketIOClientStatus.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4531BA362F700536F57 /* SocketLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4451BA362F700536F57 /* SocketLogger.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4541BA362F700536F57 /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4461BA362F700536F57 /* SocketPacket.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4551BA362F700536F57 /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4471BA362F700536F57 /* SocketParser.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4561BA362F700536F57 /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4481BA362F700536F57 /* SocketTypes.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4571BA362F700536F57 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4491BA362F700536F57 /* SwiftRegex.swift */; settings = {ASSET_TAGS = (); }; };
-		4074F4581BA362F700536F57 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F44A1BA362F700536F57 /* WebSocket.swift */; settings = {ASSET_TAGS = (); }; };
+		4056F5CB1C672DA20032E85E /* ServerPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4056F5CA1C672DA20032E85E /* ServerPickerViewController.m */; };
+		4056F5D41C672E330032E85E /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 4056F5CD1C672E330032E85E /* Device.m */; };
+		4056F5D51C672E330032E85E /* ScanLAN.m in Sources */ = {isa = PBXBuildFile; fileRef = 4056F5CF1C672E330032E85E /* ScanLAN.m */; };
+		4056F5D61C672E330032E85E /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 4056F5D11C672E330032E85E /* SimplePing.m */; };
+		4056F5D71C672E330032E85E /* SimplePingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4056F5D31C672E330032E85E /* SimplePingHelper.m */; };
+		4074F44B1BA362F700536F57 /* SocketAckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F43D1BA362F700536F57 /* SocketAckManager.swift */; };
+		4074F44C1BA362F700536F57 /* SocketAnyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F43E1BA362F700536F57 /* SocketAnyEvent.swift */; };
+		4074F44D1BA362F700536F57 /* SocketEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F43F1BA362F700536F57 /* SocketEngine.swift */; };
+		4074F44E1BA362F700536F57 /* SocketEngineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4401BA362F700536F57 /* SocketEngineClient.swift */; };
+		4074F44F1BA362F700536F57 /* SocketEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4411BA362F700536F57 /* SocketEventHandler.swift */; };
+		4074F4501BA362F700536F57 /* SocketFixUTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4421BA362F700536F57 /* SocketFixUTF8.swift */; };
+		4074F4511BA362F700536F57 /* SocketIOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4431BA362F700536F57 /* SocketIOClient.swift */; };
+		4074F4521BA362F700536F57 /* SocketIOClientStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4441BA362F700536F57 /* SocketIOClientStatus.swift */; };
+		4074F4531BA362F700536F57 /* SocketLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4451BA362F700536F57 /* SocketLogger.swift */; };
+		4074F4541BA362F700536F57 /* SocketPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4461BA362F700536F57 /* SocketPacket.swift */; };
+		4074F4551BA362F700536F57 /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4471BA362F700536F57 /* SocketParser.swift */; };
+		4074F4561BA362F700536F57 /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4481BA362F700536F57 /* SocketTypes.swift */; };
+		4074F4571BA362F700536F57 /* SwiftRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F4491BA362F700536F57 /* SwiftRegex.swift */; };
+		4074F4581BA362F700536F57 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074F44A1BA362F700536F57 /* WebSocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +56,16 @@
 		284EAAB917467372002CEFCB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		284EAABB17467372002CEFCB /* APLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APLViewController.h; sourceTree = "<group>"; };
 		284EAABC17467372002CEFCB /* APLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APLViewController.m; sourceTree = "<group>"; };
+		4056F5C91C672DA20032E85E /* ServerPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerPickerViewController.h; sourceTree = "<group>"; };
+		4056F5CA1C672DA20032E85E /* ServerPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerPickerViewController.m; sourceTree = "<group>"; };
+		4056F5CC1C672E330032E85E /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		4056F5CD1C672E330032E85E /* Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
+		4056F5CE1C672E330032E85E /* ScanLAN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanLAN.h; sourceTree = "<group>"; };
+		4056F5CF1C672E330032E85E /* ScanLAN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanLAN.m; sourceTree = "<group>"; };
+		4056F5D01C672E330032E85E /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		4056F5D11C672E330032E85E /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		4056F5D21C672E330032E85E /* SimplePingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePingHelper.h; sourceTree = "<group>"; };
+		4056F5D31C672E330032E85E /* SimplePingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePingHelper.m; sourceTree = "<group>"; };
 		4074F43D1BA362F700536F57 /* SocketAckManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAckManager.swift; sourceTree = "<group>"; };
 		4074F43E1BA362F700536F57 /* SocketAnyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketAnyEvent.swift; sourceTree = "<group>"; };
 		4074F43F1BA362F700536F57 /* SocketEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketEngine.swift; sourceTree = "<group>"; };
@@ -111,6 +126,14 @@
 		284EAAA617467372002CEFCB /* CameraApp */ = {
 			isa = PBXGroup;
 			children = (
+				4056F5CC1C672E330032E85E /* Device.h */,
+				4056F5CD1C672E330032E85E /* Device.m */,
+				4056F5CE1C672E330032E85E /* ScanLAN.h */,
+				4056F5CF1C672E330032E85E /* ScanLAN.m */,
+				4056F5D01C672E330032E85E /* SimplePing.h */,
+				4056F5D11C672E330032E85E /* SimplePing.m */,
+				4056F5D21C672E330032E85E /* SimplePingHelper.h */,
+				4056F5D31C672E330032E85E /* SimplePingHelper.m */,
 				4074F43D1BA362F700536F57 /* SocketAckManager.swift */,
 				4074F43E1BA362F700536F57 /* SocketAnyEvent.swift */,
 				4074F43F1BA362F700536F57 /* SocketEngine.swift */,
@@ -131,6 +154,8 @@
 				284EAAAF17467372002CEFCB /* APLAppDelegate.h */,
 				284EAAB017467372002CEFCB /* APLAppDelegate.m */,
 				284EAAA717467372002CEFCB /* Supporting Files */,
+				4056F5C91C672DA20032E85E /* ServerPickerViewController.h */,
+				4056F5CA1C672DA20032E85E /* ServerPickerViewController.m */,
 			);
 			path = CameraApp;
 			sourceTree = "<group>";
@@ -234,9 +259,14 @@
 				4074F4561BA362F700536F57 /* SocketTypes.swift in Sources */,
 				4074F4541BA362F700536F57 /* SocketPacket.swift in Sources */,
 				4074F44B1BA362F700536F57 /* SocketAckManager.swift in Sources */,
+				4056F5D61C672E330032E85E /* SimplePing.m in Sources */,
+				4056F5D51C672E330032E85E /* ScanLAN.m in Sources */,
+				4056F5D41C672E330032E85E /* Device.m in Sources */,
+				4056F5D71C672E330032E85E /* SimplePingHelper.m in Sources */,
 				4074F4511BA362F700536F57 /* SocketIOClient.swift in Sources */,
 				4074F44F1BA362F700536F57 /* SocketEventHandler.swift in Sources */,
 				284EAAAD17467372002CEFCB /* main.m in Sources */,
+				4056F5CB1C672DA20032E85E /* ServerPickerViewController.m in Sources */,
 				284EAAB117467372002CEFCB /* APLAppDelegate.m in Sources */,
 				284EAABD17467372002CEFCB /* APLViewController.m in Sources */,
 			);

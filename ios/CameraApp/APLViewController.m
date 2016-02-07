@@ -66,6 +66,8 @@
 @property (nonatomic) NSInteger picsTaken;
 @property (nonatomic) NSTimer *cameraTimer;
 
+@property (nonatomic) Device *selectedServer;
+
 
 @end
 
@@ -78,8 +80,8 @@
 {
     [super viewDidLoad];
     self.capturedImages = [[NSMutableArray alloc] init];
-    
-    self.socket = [[SocketIOClient alloc] initWithSocketURL:@"192.168.0.101:3000" opts:nil];
+    NSString *serverUrl = [NSString stringWithFormat:@"%@:3000",self.selectedServer.address];
+    self.socket = [[SocketIOClient alloc] initWithSocketURL:serverUrl opts:nil];
     [self addSocketEventHandlers];
     [self connectSocket];
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
@@ -142,12 +144,18 @@
         [imageDataArray addObject:imageBase64];
     }
     NSMutableDictionary *message = [[NSMutableDictionary alloc] init];
+    [message setValue:self.selectedServer.name forKey:@"hostName"];
     [message setValue:imageDataArray forKey:@"images"];
     [self.socket emit:@"upload" withItems:@[message]];
 //    NSData *imageData = UIImagePNGRepresentation([self.capturedImages objectAtIndex:0]);;
 //    //        imageData = UIImagePNGRepresentation([self.capturedImages objectAtIndex:0]);
 //    NSString *imageBase64 = [imageData base64EncodedStringWithOptions:0];
 //    [self.socket emit:@"upload" withItems:@[@{@"image":imageBase64}]];
+}
+
+-(void)setServer:(Device *)device
+{
+    self.selectedServer = device;
 }
 
 #pragma mark - Timer
