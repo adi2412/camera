@@ -144,7 +144,7 @@
         [imageDataArray addObject:imageBase64];
     }
     NSMutableDictionary *message = [[NSMutableDictionary alloc] init];
-    [message setValue:self.selectedServer.name forKey:@"hostName"];
+    [message setValue:[[UIDevice currentDevice] name] forKey:@"hostName"];
     [message setValue:imageDataArray forKey:@"images"];
     [self.socket emit:@"upload" withItems:@[message]];
 //    NSData *imageData = UIImagePNGRepresentation([self.capturedImages objectAtIndex:0]);;

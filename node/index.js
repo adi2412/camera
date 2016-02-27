@@ -20,6 +20,9 @@ io.on('connection', function(socket){
   io.emit('newDevice', {devices: connectedDevices});
   socket.on('download', function(msg){
     io.emit('download', msg);
+  });
+  socket.on('upload', function(msg){
+    io.emit('upload', msg);
     // Write the files to disk
     var deivceName = msg.deviceName;
     for (var i = msg.images.length - 1; i >= 0; i--) {
@@ -30,9 +33,6 @@ io.on('connection', function(socket){
         if(err) throw err;
       });
     }
-  });
-  socket.on('upload', function(msg){
-    io.emit('upload', msg);
   });
   socket.on('disconnect', function(msg){
     connectedDevices--;
