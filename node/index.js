@@ -29,7 +29,7 @@ io.on('connection', function(socket){
       var now = moment();
       var timestamp = now.format('YYYYMMDDHHmmss')
       var imageName = deivceName + '-' + timestamp + '.jpg';
-      fs.writeFile(imageName,msg.images,(err) =>{
+      fs.writeFile(imageName,msg.images,'base64',(err) =>{
         if(err) throw err;
       });
     }
