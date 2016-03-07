@@ -106,6 +106,8 @@
     <script src="public/js/bootstrap.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script>
+        var alertDownloadMsg = "<div class='alert alert-warning alert-dismissible fade in' id='{alertId}' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>{msg}</div>";
+        var alertClickedPics = "<div class='alert alert-warning alert-dismissible fade in' id='{alertId}' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>{deviceName} has finished clicking pictures.</div>";
         var socket = io('http://localhost:3000');
         $('#clickButton').click(function(){
             var delay = $('#delay').val();
@@ -127,7 +129,26 @@
           var devices = msg.devices-1;
           console.log(msg.devices);
           $('#statusText').text('There are ' + devices.toString() + ' devices connected');
+        });
+        socket.on('clicked', function(msg){
+          var msg = alertClickedPics.replace("{deviceName}",msg.hostName);
+          var randomNumber = Math.floor((Math.random() * 10000)+10000);
+          msg = msg.replace("{alertId}",randomNumber);
+          setTimeout(function(){
+            $('#'+randomNumber).alert('close');
+          },5000);
+          $('#status').prepend(msg);
         })
+        socket.on('save',function(msg){
+          // Show the msg in an alert
+          var msg = alertDownloadMsg.replace("{msg}",msg);
+          var randomNumber = Math.floor((Math.random() * 10000)+10000);
+          msg = msg.replace("{alertId}",randomNumber);
+          setTimeout(function(){
+            $('#'+randomNumber).alert('close');
+          },5000);
+          $('#status').prepend(msg);
+        });
         socket.on('upload', function(msg){
           for (var i = msg.images.length - 1; i >= 0; i--) {
             $('#gallery p').hide();
@@ -136,7 +157,6 @@
           // $('#gallery p').hide();
           // $('#gallery').append('<img src="data:image/png;base64,'+msg.image+'">');
         });
-
         $('#resetButton').click(function(){
           $('#gallery img').remove();
           $('#gallery p').show();

@@ -136,6 +136,10 @@
 
 - (void) createSocketMessage
 {
+    //  Send a message saying pictures have been clicked
+    NSMutableDictionary *clickedMsgArray = [[NSMutableDictionary alloc] init];
+    [clickedMsgArray setValue:[[UIDevice currentDevice] name] forKey:@"hostName"];
+    [self.socket emit:@"clicked" withItems:@[clickedMsgArray]];
     //        Send the clicked pictures back
     NSMutableArray *imageDataArray = [[NSMutableArray alloc] init];
     for (UIImage *image in self.capturedImages) {

@@ -21,23 +21,29 @@ io.on('connection', function(socket){
   socket.on('download', function(msg){
     io.emit('download', msg);
   });
+  socket.on('clicked', function(msg){
+    io.emit('clicked',msg);
+  });
   socket.on('upload', function(msg){
     io.emit('upload', msg);
     // Write the files to disk
-    var deivceName = msg.deviceName;
+    var deivceName = msg.hostName;
+    var imagesSaved = 0;
     for (var i = msg.images.length - 1; i >= 0; i--) {
       var now = moment();
       var timestamp = now.format('YYYYMMDDHHmmss')
       var imageName = deivceName + '-' + timestamp + '.jpg';
-      fs.writeFile(imageName,msg.images,'base64',(err) =>{
+      fs.writeFile(imageName,msg.images[i],'base64',(err) =>{
         if(err) throw err;
+        var saveMsg = deviceName + ' - ' + (++imagesSaved)+'/'+msg.images.length+' images saved.';
+        io.emit('save',saveMsg);
       });
     }
   });
   socket.on('disconnect', function(msg){
     connectedDevices--;
     io.emit('disconnectedDevice', {devices: connectedDevices});
-  })
+  });
 });
 
 http.listen(3000, function(){
